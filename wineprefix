@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [ "$#" -le 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+	echo "Usage: wineprefix [prefix-name] [commands]"
+	exit 1
+fi
+
+prefix="$1"
+shift
+
+mkdir "$HOME/.wineprefix"
+env WINEPREFIX="$HOME/.wineprefix/$prefix" "$@"
