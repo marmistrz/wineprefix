@@ -8,5 +8,5 @@ fi
 prefix="$1"
 shift
 
-mkdir "$HOME/.wineprefix"
+mkdir -p "$HOME/.wineprefix" || (echo "Error creating the prefix root"; exit 1)
 env WINEPREFIX="$HOME/.wineprefix/$prefix" "$@"
